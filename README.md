@@ -39,4 +39,52 @@ A FastAPI web service that performs IP address location lookups.
 Install the required dependencies:
 ```bash
 pip install -r requirements.txt
+```
+
+## Running the API Server
+
+Start the server using the following command:
+
+```bash
+python app.py
+```
+The API will be available at http://127.0.0.1:8000/
+
+## API Endpoints
+
+### Root Endpoint
+- URL: `http://127.0.0.1:8000/`
+- Method: GET
+- Description: Provides information about available endpoints
+
+### Get Your Current Location
+- URL: `http://127.0.0.1:8000/mylocation`
+- Method: GET
+- Description: Returns location information based on your current IP address
+
+### Get Location for a Specific IP
+- URL: `http://127.0.0.1:8000/location/{ip_address}`
+- Method: GET
+- Description: Returns location information for the specified IP address
+- Example: `http://127.0.0.1:8000/location/8.8.8.8`
+
+## API Documentation
+
+FastAPI automatically generates interactive API documentation:
+
+- Swagger UI: `http://127.0.0.1:8000/docs`
+- ReDoc: `http://127.0.0.1:8000/redoc`
+
+## Sample Response
+
+```json
+{
+  "ip": "8.8.8.8",
+  "city": "Mountain View",
+  "region": "California",
+  "country": "United States",
+  "complete_address": "Mountain View, California, United States",
+  "timezone": "America/Los_Angeles"
+}
+```
 
